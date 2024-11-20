@@ -19,8 +19,8 @@
         <input type="email" name="email" placeholder="E-mail">
         <input type="password" name="password" placeholder="Wachtwoord">
         <input type="submit" value="Inloggen">
-</form>
-    </div>
+    </form>
+</div>
 </div>
 </body>
 </html>
