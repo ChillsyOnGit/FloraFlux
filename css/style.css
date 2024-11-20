@@ -9,6 +9,7 @@
 body {
     margin: 0;
     background-color: var(--green);
+    font-family: 'Valera Round', sans-serif;
 }
 
 nav {
@@ -47,7 +48,11 @@ nav ul li i {
 }
 nav ul li:last-child {
     margin-top: auto;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    }
 section {
     margin-left: 75px;
     padding: 20px;
