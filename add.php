@@ -5,10 +5,10 @@ require_once 'assets/sidebar.php'; ?>
 <section>
     
     <div class="box1">
-        <h1>Nieuwe plant</h1>
-        <br><br><br>
+        <h1>Nieuwe plant toevoegen</h1>
+        <br>
      <form action ="login.php" method="post">
-        <input type="text" name="Naam plant" placeholder="Naam plant">
+        <input type="text" name="Naam plant" placeholder="Nickname plant">
         <br>
         <input type="text" name="Pomp ID" placeholder="Pomp ID">
         <br>
