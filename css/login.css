@@ -7,13 +7,51 @@ body {
     
 }
 
+h1 {
+    font-size: 4em;
+    color:white;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 3em;
+    color:white;
+    font-weight: 400;
+    input[type="email"] {
+        padding: 25px;
+        font-size: 30px;
+        border-radius: 10px;
+    }
+}
+
+input[type="email"] {
+    padding: 25px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+input[type="password"] {
+    padding: 25px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+input[type="submit"] {
+    padding: 25px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
 .box1 {
     display: flex;
     justify-content: center;
     background-color: var(--green);
     width: 100%;
-    border-radius: 8px;
-    padding: 60px;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .box2 {
@@ -23,7 +61,11 @@ body {
     flex-direction: column;
     background-color: var(--green);
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 form {
@@ -34,7 +76,8 @@ form {
 
 .grotebox {
     display: flex;
-    margin-top: 20vh;
-    gap: 30px;
+    margin-top: 10vh;
+    gap: 60px;
     flex-direction: column;
 }
+
