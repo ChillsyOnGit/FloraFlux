@@ -1,0 +1,13 @@
+.plant {
+    height: 250px;
+    display: flex;
+}
+
+.plant-img {
+    height: 100%;
+}
+
+.plant-img img {
+    height: 100%;
+    width: auto;
+}

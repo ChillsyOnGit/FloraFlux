@@ -16,7 +16,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 75px;
+    width: 71px;
     border-right: 5px var(--dark-green) solid;
     height: 100vh;
     display: flex;
@@ -28,9 +28,10 @@ nav ul {
     height: 100%;
     list-style: none;
     padding: 0px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     flex-grow: 1; /* Allow .nav-links to grow and fill the available space */
 }
 
@@ -41,10 +42,14 @@ nav ul li {
 }
 
 nav ul li i {
-    font-size: 40px;
+    font-size: 35px;
     color: var(--dark-green);
 }
-
 nav ul li:last-child {
     margin-top: auto;
+}
+section {
+    margin-left: 75px;
+    padding: 20px;
+
 }
