@@ -16,7 +16,8 @@
             <li><a href="index.php"><i class="fas fa-home"></i> </a></li>
             <li><a href="add.php"><i class="fas fa-plus"></i> </a></li>
             <li><a href="account.php"><i class="fas fa-user"></i> </a></li>
-            <li><a href="settings.php"><i class="fas fa-cog"></i> </a></li>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> </a></li>
+            <li><a href="settings.php"><i class="fas fa-cog"></i> </a>
+            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> </a>
+            </li>
         </ul>
 </nav>
