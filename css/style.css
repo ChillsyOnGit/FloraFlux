@@ -7,12 +7,15 @@
     --orange: rgb(221, 161, 94);
     --dark-orange: rgb(188, 108, 37);
 }
+*{
+
+    font-family: 'Varela Round', sans-serif;
+}
 
 body {
     margin: 0;
     background-color: var(--green);
     /* valera round */
-    font-family: 'Varela Round', sans-serif;
 }
 
 nav {
