@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 :root {
     --dark-green: rgb(40, 54, 24);
     --green: rgb(96, 108, 56);
@@ -9,7 +11,8 @@
 body {
     margin: 0;
     background-color: var(--green);
-    font-family: 'Valera Round', sans-serif;
+    /* valera round */
+    font-family: 'Varela Round', sans-serif;
 }
 
 nav {
