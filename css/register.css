@@ -7,11 +7,6 @@ body {
     
 }
 
-h1 {
-    font-size: 3em;
-    color:white;
-    font-weight: 400;
-}
 
 h2 {
     font-size: 3em;
@@ -41,21 +36,15 @@ input[type="submit"] {
     width: 120%;
 }
 
-.box1 {
-    display: flex;
-    justify-content: center;
-    background-color: var(--green);
-    width: 107%;
-    border-radius: 10px;
-}
-
 .box2 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 10vh;
+    gap: 60px;
     background-color: var(--green);
-    width: 100%;
+    width: 30%;
     border-radius: 10px;
     padding: 10px;
 }

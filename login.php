@@ -20,6 +20,8 @@
         <input type="password" name="password" placeholder="Wachtwoord">
         <input type="submit" value="Inloggen">
     </form>
+    <p>Nog geen account?
+    Meld je <a href='register.php'>hier</a> aan</p>
 </div>
 </div>
 </body>

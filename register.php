@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <title>Floraflux - register</title>
 </head>
 <body>
     
+    <div class="box2">
+        <h2>inloggen</h2>
+     <form action ="login.php" method="post">
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="vnaam" placeholder="Voornaam" required>
+        <input type="text" name="anaam" placeholder="Achternaam">
+        <input type="tel" name="tnummer" placeholder="Telefoonnummer">
+        <input type="password" name="password" placeholder="Wachtwoord" required>
+        <input type="password" name="bpassword" placeholder="Bevestig Wachtwoord" required>
+        <input type="submit" value="Inloggen">
+    </form>
+    <p>Nog geen account?
+    Meld je <a href='register.php'>hier</a> aan</p>
+</div>   
 </body>
 </html>
