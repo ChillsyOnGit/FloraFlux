@@ -12,19 +12,15 @@ h2 {
     font-size: 3em;
     color:white;
     font-weight: 400;
-    input[type="email"] {
-        padding: 25px;
-        font-size: 30px;
-        border-radius: 10px;
-    }
 }
 
 input {
     padding: 18px;
     font-size: 20px;
     border-radius: 10px;
-    max-width: 60%;
+    width: 100%;
     background-color: var(--white);
+    box-sizing: border-box;
 }
 
 input[type="submit"] {
@@ -33,7 +29,7 @@ input[type="submit"] {
     /* border-radius: 10px; */
     background-color: var(--dark-green);
     color: white;
-    width: 120%;
+    width: 100%;
 }
 
 .box2 {
@@ -42,7 +38,7 @@ input[type="submit"] {
     align-items: center;
     flex-direction: column;
     margin-top: 10vh;
-    gap: 60px;
+    gap: 10px;
     background-color: var(--green);
     width: 30%;
     border-radius: 10px;
@@ -72,4 +68,16 @@ form {
 
 .box2 a{
     color:blue;
+}
+
+form div {
+    display: flex;
+    gap: 10px;
+}
+
+.text {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
