@@ -30,6 +30,7 @@ input {
     border-radius: 10px;
     max-width: 60%;
     background-color: var(--white);
+    border: none;
 }
 
 input[type="submit"] {

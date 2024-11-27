@@ -21,6 +21,7 @@ input {
     width: 100%;
     background-color: var(--white);
     box-sizing: border-box;
+    border: none;
 }
 
 input[type="submit"] {
