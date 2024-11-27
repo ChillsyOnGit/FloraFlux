@@ -14,7 +14,7 @@
     </div>
     
     <div class="box2">
-        <h2>inloggen</h2>
+        <h2>Inloggen</h2>
      <form action ="login.php" method="post">
         <input type="email" name="email" placeholder="E-mail">
         <input type="password" name="password" placeholder="Wachtwoord">
