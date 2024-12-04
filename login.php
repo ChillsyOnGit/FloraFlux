@@ -1,3 +1,18 @@
+<?php 
+// Enable error reporting
+require_once 'classes/user.php';
+
+//error
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+$login = new User();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $login->login($email, $password);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,6 +1,11 @@
 <?php $title = 'Home'; 
 $css = 'plant-overview.css';
-require_once 'assets/sidebar.php'; ?>
+require_once 'assets/sidebar.php'; 
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: login.php');
+}
+?>
 
 <section>
     <?php
