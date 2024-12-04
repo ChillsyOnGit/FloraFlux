@@ -1,0 +1,54 @@
+a:has(.plant){
+    text-decoration: none;
+    color: var(--dark-green);
+}
+
+.plant {
+    height: 200px;
+    display: flex;
+    padding: 20px;
+    gap: 50px;
+    background-color: var(--white);
+    border-radius: 500px;
+    margin-bottom: 20px;
+}
+
+.plant-img {
+    height: 100%;
+}
+
+.plant-img img {
+    height: 190px;
+    width: 190px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 5px solid var(--dark-green);
+} 
+
+.plant-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+}
+
+.plant-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: var(--dark-green);
+    text-decoration: none;
+}
+
+.plant-warning {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+    }
+
+.plant-warning i {
+    font-size: 75px;
+    color: var(--dark-orange);
+    }
