@@ -17,12 +17,12 @@
         <input type="text" name="anaam" placeholder="Achternaam"></div>
         <input type="tel" name="tnummer" placeholder="Telefoonnummer">
         <div><input type="password" name="password" placeholder="Wachtwoord" required>
-        <input type="password" name="bpassword" placeholder="Bevestig Wachtwoord" required></div>
+        <input type="password" name="bpassword" placeholder="Bevestig wachtwoord" required></div>
         <input type="submit" value="Inloggen">
     </form>
     <div class="text"><p>*verplicht veld</php>
     <p>Al een account?
-    Log je <a href='register.php'>hier</a> in</p></div>
+    Log je <a href='login.php'>hier</a> in</p></div>
 </div>   
 </body>
 </html>
