@@ -3,7 +3,7 @@
 class Database {
     private $envPath;
 
-    public function __construct($envPath = '../.env') {
+    public function __construct($envPath = __DIR__ . '/../.env') {
         $this->envPath = $envPath;
         $this->loadEnv();
     }
@@ -33,7 +33,6 @@ class Database {
 
     public function sendData($sql) {
         $key = getenv('PRIVATE_KEY');
-        echo $key;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "https://aquaflora.chillsy.net/receive_data.php");
@@ -47,15 +46,10 @@ class Database {
         if ($response === false) {
             $error = curl_error($ch);
             echo "cURL Error: $error";
-        } else {
-            echo "Response from server: $response";
+            return false;
         }
 
         curl_close($ch);
+        return $response;
     }
 }
-
-// Example usage
-$sql = "SELECT * FROM Appinstellingen";
-$db = new Database();
-$db->sendData($sql);
