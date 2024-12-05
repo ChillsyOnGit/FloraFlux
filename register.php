@@ -26,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="box2">
         <h2>Aanmelden</h2>
      <form action ="register.php" method="post">
-        <input type="email" name="email" placeholder="E-mail" required>
-        <div><input type="text" name="vnaam" placeholder="Voornaam" required>
-        <input type="text" name="anaam" placeholder="Achternaam"></div>
+        <input type="email" name="email" placeholder="E-mail*" required>
+        <div><input type="text" name="vnaam" placeholder="Voornaam*" required>
+        <input type="text" name="anaam" placeholder="Achternaam*" required></div>
         <input type="tel" name="tnummer" placeholder="Telefoonnummer">
-        <div><input type="password" name="password" placeholder="Wachtwoord" required>
-        <input type="password" name="bpassword" placeholder="Bevestig wachtwoord" required></div>
+        <div><input type="password" name="password" placeholder="Wachtwoord*" required>
+        <input type="password" name="bpassword" placeholder="Bevestig wachtwoord*" required></div>
         <input type="submit" value="Inloggen">
     </form>
     <div class="text"><p>*verplicht veld</php>

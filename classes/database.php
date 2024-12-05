@@ -35,7 +35,7 @@ class Database {
         $key = getenv('PRIVATE_KEY');
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://aquaflora.chillsy.net/receive_data.php");
+        curl_setopt($ch, CURLOPT_URL, "https://floraflux.chillsy.net/receive_data.php");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('sql' => $sql, 'key' => $key)));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
