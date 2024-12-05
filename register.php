@@ -1,3 +1,17 @@
+<?php
+require_once 'classes/user.php';
+$register = new User();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $voornaam = $_POST['vnaam'];
+    $achternaam = $_POST['anaam'];
+    $email = $_POST['email'];
+    $wachtwoord = $_POST['password'];
+    $telefoonnummer = $_POST['tnummer'];
+    $wachtwoord_check = $_POST['bpassword'];
+    $register->register($voornaam, $achternaam, $email, $wachtwoord, $telefoonnummer, $wachtwoord_check);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +25,7 @@
     
     <div class="box2">
         <h2>Aanmelden</h2>
-     <form action ="login.php" method="post">
+     <form action ="register.php" method="post">
         <input type="email" name="email" placeholder="E-mail" required>
         <div><input type="text" name="vnaam" placeholder="Voornaam" required>
         <input type="text" name="anaam" placeholder="Achternaam"></div>
