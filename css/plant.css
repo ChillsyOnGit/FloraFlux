@@ -17,6 +17,7 @@ h1 {
     background-color: var(--white);
     border-radius: 100px;
     margin-bottom: 20px;
+    flex-direction: column;
 }
 
 .plant-img {
