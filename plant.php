@@ -9,13 +9,13 @@ require_once 'assets/sidebar.php'; ?>
             <img src="assets/images/plant.jpg" alt="plant">
             </div>
             <div class="plant-text">
-                <h1>Plant: Fungi Nuisance</h1>
-                <p>Plant leeft al 21 dagen</p>
+                <h1>Fungi Nuisance</h1>
+                <p>Plant leeft al voor 142 dagen</p>
                 <p class="plant-warning"><i class="fas fa-exclamation-triangle"></i>Water bijna op</p>
             </div>
         </div>
         <div class="plant-graphic">
-            <canvas id="myChart"></canvas>
+        <canvas id="myChart" width="900" height="450" style="display: block; box-sizing: border-box; height: 500px; width: 1000px;"></canvas>
         </div>
     </div>
 </section>
