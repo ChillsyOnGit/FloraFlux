@@ -15,7 +15,7 @@ require_once 'assets/sidebar.php'; ?>
             </div>
         </div>
         <div class="plant-graphic">
-        <canvas id="myChart" width="900" height="450" style="display: block; box-sizing: border-box; height: 500px; width: 1000px;"></canvas>
+        <canvas id="myChart" width="9000" height="2200" style="display: block; box-sizing: border-box; height: 2200px; width: 900px;"></canvas>
         </div>
     </div>
 </section>
