@@ -1,36 +1,37 @@
 <?php $title = 'Home'; 
 $css = 'plant-overview.css';
 require_once 'assets/sidebar.php'; 
-session_start();
-if (!isset($_SESSION['loggedin'])) {
-    header('Location: login.php');
-}
+
 ?>
 
 <section>
     <?php
-    for ($i = 0; $i < 10; $i++) {
-        echo '<a href="plant.php?id='.$i.'">
+    require_once 'classes/plant.php';
+    $plant = new Plant();
+    $plants = $plant->showPlants($_SESSION['id']);
+    $plants = json_decode($plants, true);
+    $temp = false;
+    for ($i = 0; $i < count($plants); $i++) {
+        echo '<a href="plant.php?id='.$plants[$i]['id'].'">
         <div class="plant">
             <div class="plant-img">
                 <img src="assets/images/plant.jpg" alt="plant">
             </div>
             <div class="plant-info">
-                <p>Plant:<br>Fungi Nuisance</p>
+                <p>Plant:<br>'.$plants[$i]['plantNickname'].'</p>
                 <p>Aantal water gekregen:<br>21</p>
                 <p>Vochtigheid percentage:<br>100%</p>
                 <p>Tijd van uitgave<br>11:49</p>
-            </div>
-            <div class="plant-warning">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-        </div>
+            </div>';
+            if ($temp) {
+                echo '<div class="plant-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>';
+            }
+        echo '</div>
         </a>';
     }
     ?>
-
-    
 </section>
 </body>
-
 </html>
