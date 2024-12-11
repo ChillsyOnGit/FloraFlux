@@ -1,28 +1,31 @@
-<?php $title = 'Plant toevoegen'; 
+<?php 
+$title = 'Plant toevoegen'; 
 $css = 'plant-add.css';
-require_once 'assets/sidebar.php'; ?>
+require_once 'classes/plant.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $query = $_POST['test'];
+    $plant = new Plant();
+    $plants = $plant->searchPlants($query);
+    var_dump($plants); // Display the search results for debugging
+    exit();
+}
 
+require_once 'assets/sidebar.php'; 
+?>
 <section>
-    
     <div class="box1">
         <h1>Nieuwe plant toevoegen</h1>
         <br>
-     <form action ="login.php" method="post">
-        <input type="text" name="Naam plant" placeholder="Nickname plant">
-        <br>
-        <input type="text" name="Pomp ID" placeholder="Pomp ID">
-        <br>
-        <select id="Plant soort">
-            <option selected disabled>Soort plant</option>
-            <option value="Dolle-Kervel">Dolle Kervel</option>
-            <option value="Verlariaan">Valeriaan</option>
-            <option value="Gele-Lis">Gele Lis</option>
-            <option value="Zombo">Zombo</option>
-        </select>
-        <br>
-        <input class="toevoegen" type="submit" value="Toevoegen">
+        <form action="add.php" method="post">
+            <input type="text" name="Naam plant" placeholder="Nickname plant">
+            <br>
+            <input type="text" name="Pomp ID" placeholder="Pomp ID">
+            <br>
+            <input type="text" name="test" placeholder="Soort plant">
+            <br>
+            <input class="toevoegen" type="submit" value="Toevoegen">
+        </form>
     </div>
 </section>
 </body>
-
 </html>
