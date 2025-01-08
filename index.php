@@ -17,7 +17,7 @@ require_once 'assets/sidebar.php';
                 <img src="assets/images/plant.jpg" alt="plant">
             </div>
             <div class="plant-info">
-                <p>Plant:<br>'.$plants[$i]['plantNickname'].'</p>
+                <p>Plant:<br>'.$plants[$i]['nicknaam'].'</p>
                 <p>Aantal water gekregen:<br>21</p>
                 <p>Vochtigheid percentage:<br>100%</p>
                 <p>Tijd van uitgave<br>11:49</p>

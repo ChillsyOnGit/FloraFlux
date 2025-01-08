@@ -21,7 +21,7 @@ ini_set('display_startup_errors', 1);
             <img src="assets/images/plant.jpg" alt="plant">
             </div>
             <div class="plant-text">
-                <h1><?= $plantData['plantNickname'] ?></h1>
+                <h1><?= $plantData['nicknaam'] ?></h1>
                 <p>De plant leeft al: <?= $timeDifference ?></p>
                 <p class="plant-warning"><i class="fas fa-exclamation-triangle"></i>Water bijna op</p>
             </div>
