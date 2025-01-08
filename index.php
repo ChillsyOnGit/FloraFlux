@@ -1,7 +1,6 @@
 <?php $title = 'Home'; 
 $css = 'plant-overview.css';
 require_once 'assets/sidebar.php'; 
-
 ?>
 
 <section>

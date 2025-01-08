@@ -1,6 +1,18 @@
 <?php $title = 'Plant'; 
 $css = 'plant.css';
-require_once 'assets/sidebar.php'; ?>
+require_once 'assets/sidebar.php'; 
+require_once 'classes/plant.php';
+$plant = new Plant();
+$plantData = $plant->showPlant($_GET['id']);
+$plantData = json_decode($plantData, true);
+$plantData = $plantData[0];
+$plantMeting = $plant->plantMeting($_GET['id']);
+$timeDifference = $plantMeting[1];
+$plantMeting = $plantMeting[0];
+//error
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+?>
 
 <section>
     <div class="plant">
@@ -9,8 +21,8 @@ require_once 'assets/sidebar.php'; ?>
             <img src="assets/images/plant.jpg" alt="plant">
             </div>
             <div class="plant-text">
-                <h1>Fungi Nuisance</h1>
-                <p>Plant leeft al voor 142 dagen</p>
+                <h1><?= $plantData['plantNickname'] ?></h1>
+                <p>De plant leeft al: <?= $timeDifference ?></p>
                 <p class="plant-warning"><i class="fas fa-exclamation-triangle"></i>Water bijna op</p>
             </div>
         </div>
@@ -37,7 +49,7 @@ $labels_json = json_encode($labels);
             labels: <?php echo $labels_json; ?>, // Use the generated labels
             datasets: [{
                 label: 'Water Level',
-                data: [65, 59, 80, 81, 56, 55, 40], // Example data
+                data: [<?= $plantMeting[0]['waterGebruikt'] ?>, <?= $plantMeting[1]['waterGebruikt'] ?>, <?= $plantMeting[2]['waterGebruikt'] ?>, <?= $plantMeting[3]['waterGebruikt'] ?>, <?= $plantMeting[4]['waterGebruikt'] ?>, <?= $plantMeting[5]['waterGebruikt'] ?>, <?= $plantMeting[6]['waterGebruikt'] ?>],
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderWidth: 1
