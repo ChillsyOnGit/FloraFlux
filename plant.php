@@ -12,13 +12,22 @@ $plantMeting = $plantMeting[0];
 //error
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+if ($plantData['plaatje'] == null) {
+    $img = 'assets/images/plant.png';
+} else {
+    if (file_exists($plantData['plaatje'])) {
+        $img = $plantData['plaatje'];
+    } else {
+        $img = 'assets/images/plant.png';
+    }
+}
 ?>
 
 <section>
     <div class="plant">
         <div class="plant-info">
             <div class="plant-img">
-            <img src="assets/images/plant.jpg" alt="plant">
+                <img src="<?= $img ?>" alt="plant">
             </div>
             <div class="plant-text">
                 <h1><?= $plantData['nicknaam'] ?></h1>

@@ -14,7 +14,7 @@ class Plant {
 
     public function showPlant($id) {
         $db = new Database();
-        $sql = "SELECT M.timestamp, M.vochtigheid, M.waterGebruikt, P.nicknaam
+        $sql = "SELECT M.timestamp, M.vochtigheid, M.waterGebruikt, P.nicknaam, P.plaatje
         FROM Meting M
         JOIN Product P ON M.product = P.id
         WHERE P.id = '$id'";

@@ -10,11 +10,19 @@ require_once 'assets/sidebar.php';
     $plants = $plant->showPlants($_SESSION['id']);
     $plants = json_decode($plants, true);
     $temp = false;
-    for ($i = 0; $i < count($plants); $i++) {
+
+    for ($i = 0; $i < count($plants); $i++) {  
+        $img = 'assets/images/plant.png';  
+        if ($plants[$i]['plaatje'] != null) {
+
+        if (file_exists($plants[$i]['plaatje'])) {
+            $img = $plants[$i]['plaatje'];
+        }
+    }
         echo '<a href="plant.php?id='.$plants[$i]['id'].'">
         <div class="plant">
             <div class="plant-img">
-                <img src="assets/images/plant.jpg" alt="plant">
+                <img src="'.$img.'" alt="plant">
             </div>
             <div class="plant-info">
                 <p>Plant:<br>'.$plants[$i]['nicknaam'].'</p>
