@@ -15,9 +15,9 @@ ini_set('display_startup_errors', 1);
 if ($plantData['plaatje'] == null) {
     $img = 'assets/images/plant.png';
 } else {
-    if (file_exists($plantData['plaatje'])) {
-        $img = $plantData['plaatje'];
-    } else {
+    $dir = 'assets/images/user-uploads/';
+    $img = $dir . $plantData['id'] . '.' . $plantData['plaatje'];
+    if (!file_exists($img)) {
         $img = 'assets/images/plant.png';
     }
 }
@@ -32,7 +32,6 @@ if ($plantData['plaatje'] == null) {
             <div class="plant-text">
                 <h1><?= $plantData['nicknaam'] ?></h1>
                 <p>De plant leeft al: <?= $timeDifference ?></p>
-                <p class="plant-warning"><i class="fas fa-exclamation-triangle"></i>Water bijna op</p>
             </div>
         </div>
         <div class="plant-graphic">
@@ -46,6 +45,17 @@ $labels = [];
 for ($i = 6; $i >= 0; $i--) {
     $labels[] = date('Y-m-d', strtotime("-$i days"));
 }
+if (empty($plantMeting)) {
+    $plantMeting = [
+        ['timestamp' => date('Y-m-d'), 'waterGebruikt' => 0],
+        ['timestamp' => date('Y-m-d', strtotime('-1 day')), 'waterGebruikt' => 0],
+        ['timestamp' => date('Y-m-d', strtotime('-2 days')), 'waterGebruikt' => 0],
+        ['timestamp' => date('Y-m-d', strtotime('-3 days')), 'waterGebruikt' => 0],
+        ['timestamp' => date('Y-m-d', strtotime('-4 days')), 'waterGebruikt' => 0],
+        ['timestamp' => date('Y-m-d', strtotime('-5 days')), 'waterGebruikt' => 0],
+        ['timestamp' => date('Y-m-d', strtotime('-6 days')), 'waterGebruikt' => 0]
+    ];
+}
 $labels_json = json_encode($labels);
 ?>
 
@@ -58,7 +68,7 @@ $labels_json = json_encode($labels);
             labels: <?php echo $labels_json; ?>, // Use the generated labels
             datasets: [{
                 label: 'Water Level',
-                data: [<?= $plantMeting[0]['waterGebruikt'] ?>, <?= $plantMeting[1]['waterGebruikt'] ?>, <?= $plantMeting[2]['waterGebruikt'] ?>, <?= $plantMeting[3]['waterGebruikt'] ?>, <?= $plantMeting[4]['waterGebruikt'] ?>, <?= $plantMeting[5]['waterGebruikt'] ?>, <?= $plantMeting[6]['waterGebruikt'] ?>],
+                data: <?php echo json_encode(array_column($plantMeting, 'waterGebruikt')); ?>,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderWidth: 1

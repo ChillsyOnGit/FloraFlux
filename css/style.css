@@ -64,3 +64,8 @@ section {
     padding: 20px;
 
 }
+.error {
+    text-align: center;
+    color: var(--orange);
+    margin-left: 76px;
+    }
