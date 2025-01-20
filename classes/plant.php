@@ -1,9 +1,7 @@
 <?php
 require_once 'classes/database.php';
 
-//error
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+
 class Plant
 {
     public function showPlants($id)
@@ -123,9 +121,6 @@ class Plant
             $sql = "UPDATE Product SET gebruikersId = '$user', nicknaam = '$nickname', plaatje = '$imgPath', geactiveerd = 1 WHERE id = '$id'";
         }
         $response = $db->sendData($sql);
-        var_dump($response);
-        var_dump($sql);
-        die();
         return $response;
     }
 }
