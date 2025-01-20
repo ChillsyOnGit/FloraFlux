@@ -1,20 +1,23 @@
 <?php
-// errors
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-class Database {
+class Database
+{
     private $envPath;
 
-    public function __construct($envPath = __DIR__ . '/../.env') {
+
+    public function __construct($envPath = __DIR__ . '/../.env')
+    {
         $this->envPath = $envPath;
         $this->loadEnv();
     }
 
-    private function loadEnv() {
+    private function loadEnv()
+    {
+        //check of .env bestaat
         if (!file_exists($this->envPath)) {
             throw new Exception("The .env file does not exist.");
         }
 
+        //lees .env bestand
         $lines = file($this->envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ($lines as $line) {
             if (strpos(trim($line), '#') === 0) {
@@ -33,16 +36,21 @@ class Database {
         }
     }
 
-    public function sendData($sql) {
+    public function sendData($sql)
+    {
         $key = getenv('PRIVATE_KEY');
 
+
+        //maak vebinding met website
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "https://floraflux.chillsy.net/receive_data.php");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('sql' => $sql, 'key' => $key)));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // Disable SSL verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        //voer de request uit
         $response = curl_exec($ch);
 
         if ($response === false) {

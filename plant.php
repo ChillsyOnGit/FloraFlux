@@ -9,9 +9,6 @@ $plantData = $plantData[0];
 $plantMeting = $plant->plantMeting($_GET['id']);
 $timeDifference = $plantMeting[1];
 $plantMeting = $plantMeting[0];
-//error
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 if ($plantData['plaatje'] == null) {
     $img = 'assets/images/plant.png';
 } else {
@@ -35,16 +32,20 @@ if ($plantData['plaatje'] == null) {
             </div>
         </div>
         <div class="plant-graphic">
-        <canvas id="myChart" width="9000" height="2200" style="display: block; box-sizing: border-box; height: 2200px; width: 900px;"></canvas>
+            <canvas id="myChart" width="9000" height="2200"
+                style="display: block; box-sizing: border-box; height: 2200px; width: 900px;"></canvas>
         </div>
     </div>
 </section>
 
 <?php
+
+//maak labels voor de grafiek
 $labels = [];
 for ($i = 6; $i >= 0; $i--) {
     $labels[] = date('Y-m-d', strtotime("-$i days"));
 }
+//als er geen metingen zijn maak lege array
 if (empty($plantMeting)) {
     $plantMeting = [
         ['timestamp' => date('Y-m-d'), 'waterGebruikt' => 0],
@@ -56,32 +57,35 @@ if (empty($plantMeting)) {
         ['timestamp' => date('Y-m-d', strtotime('-6 days')), 'waterGebruikt' => 0]
     ];
 }
+//maak json van labels
 $labels_json = json_encode($labels);
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: <?php echo $labels_json; ?>, // Use the generated labels
-            datasets: [{
-                label: 'Water Level',
-                data: <?php echo json_encode(array_column($plantMeting, 'waterGebruikt')); ?>,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+// maak grafiek
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: <?php echo $labels_json; ?>,
+        datasets: [{
+            label: 'Water Level',
+            data: <?php echo json_encode(array_column($plantMeting, 'waterGebruikt')); ?>,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
-    });
+    }
+});
 </script>
 </body>
+
 </html>

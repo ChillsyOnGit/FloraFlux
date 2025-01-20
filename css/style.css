@@ -15,7 +15,6 @@
 body {
     margin: 0;
     background-color: var(--green);
-    /* valera round */
 }
 
 nav {
@@ -39,7 +38,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    flex-grow: 1; /* Allow .nav-links to grow and fill the available space */
+    flex-grow: 1;
 }
 
 nav ul li {

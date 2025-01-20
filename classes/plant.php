@@ -1,11 +1,9 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
 require_once 'classes/database.php';
-class Plant {
-    public function showPlants($id) {
+class Plant
+{
+    public function showPlants($id)
+    {
         $db = new Database();
         $sql = "
         SELECT P.*, 
@@ -24,7 +22,8 @@ class Plant {
         return $response;
     }
 
-    public function showPlant($id) {
+    public function showPlant($id)
+    {
         $db = new Database();
         $sql = "SELECT P.nicknaam, P.plaatje, P.id
         FROM Product P
@@ -33,7 +32,8 @@ class Plant {
         return $response;
     }
 
-    public function plantMeting($id) {
+    public function plantMeting($id)
+    {
         $db = new Database();
         $sql = "SELECT timestamp, SUM(waterGebruikt) as waterGebruikt 
                 FROM Meting 
@@ -42,6 +42,7 @@ class Plant {
                 GROUP BY DATE(timestamp) 
                 ORDER BY timestamp ASC";
         $response = $db->sendData($sql);
+
         if ($response == '[]') {
             return [[], '0 dagen en 0 uur'];
         }
@@ -53,14 +54,14 @@ class Plant {
             $date->modify("-$i days");
             $dates[$date->format('Y-m-d')] = 0;
         }
-    
+
         foreach ($response as $row) {
             $date = (new DateTime($row['timestamp']))->format('Y-m-d');
             if (isset($dates[$date])) {
                 $dates[$date] = $row['waterGebruikt'];
             }
         }
-    
+
         $result = [];
         foreach ($dates as $date => $waterGebruikt) {
             $result[] = [
@@ -68,7 +69,7 @@ class Plant {
                 'waterGebruikt' => $waterGebruikt
             ];
         }
-        //invert the array so it is in the correct order
+
         $result = array_reverse($result);
         $timestamp = $response[0]['timestamp'];
         $timestampDateTime = new DateTime($timestamp);
@@ -77,12 +78,13 @@ class Plant {
         return $return;
     }
 
-    public function addPlant($id, $nickname, $user, $img) {
+    public function addPlant($id, $nickname, $user, $img)
+    {
         $sql = "SELECT geactiveerd FROM Product WHERE id = '$id' AND geactiveerd = 1;";
         $db = new Database();
         $response = $db->sendData($sql);
         if ($response != '[]') {
-            die ('<div class="error">ERROR: Plant is already added.</div>');
+            die('<div class="error">ERROR: Plant is already added.</div>');
         }
         if ($img == null || $img['error'] != UPLOAD_ERR_OK) {
             $imgPath = null;
@@ -90,17 +92,19 @@ class Plant {
             $type = mime_content_type($img['tmp_name']);
             $allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
 
+            //kijk of het bestandstype is toegestaan
             if (!in_array($type, $allowedTypes)) {
                 die('Invalid file type. Only PNG and JPEG images are allowed.');
             }
 
+            //maak de map aan als deze nog niet bestaat
             $dir = 'assets/images/user-uploads/';
             if (!is_dir($dir)) {
                 mkdir($dir, 0777, true);
             }
 
+            //verplaats het bestand naar de map
             $file = $dir . $id . '.' . pathinfo($img['name'], PATHINFO_EXTENSION);
-
             if (!move_uploaded_file($img['tmp_name'], $file)) {
                 die('Failed to upload image.');
             }

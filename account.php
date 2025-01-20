@@ -1,6 +1,6 @@
-<?php $title = 'Settings';
+<?php $title = 'Account'; 
 $css = 'settings.css';
-require_once 'assets/sidebar.php';
+require_once 'assets/sidebar.php'; 
 ?>
 
 <section>

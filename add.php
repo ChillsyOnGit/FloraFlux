@@ -1,9 +1,13 @@
-<?php 
-$title = 'Plant toevoegen'; 
+<?php
+$title = 'Plant toevoegen';
 $css = 'plant-add.css';
-require_once 'assets/sidebar.php'; 
+require_once 'assets/sidebar.php';
+
+//check of er een post request is
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once 'classes/plant.php';
+
+    //maak nieuwe plant aan
     $plant = new Plant();
     $plant->addPlant($_POST['plant-id'], $_POST['nickname'], $_SESSION['id'], $_FILES['img']);
     header('Location: index.php');
@@ -26,4 +30,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </section>
 </body>
+
 </html>
