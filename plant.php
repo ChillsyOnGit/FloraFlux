@@ -70,7 +70,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: <?php echo $labels_json; ?>,
         datasets: [{
-            label: 'Water Level',
+            label: 'Water Gegeven (ml)',
             data: <?php echo json_encode(array_column($plantMeting, 'waterGebruikt')); ?>,
             borderColor: 'rgba(75, 192, 192, 1)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -80,7 +80,12 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value) {
+                        return value + ' ml';
+                    }
+                }
             }
         }
     }
