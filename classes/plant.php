@@ -1,7 +1,7 @@
 <?php
 require_once 'classes/database.php';
 
-error
+//error
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 class Plant
