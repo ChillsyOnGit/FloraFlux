@@ -11,7 +11,7 @@ void loop()
 {
   sensor = analogRead (A0);
   Serial.println (sensor);
-   if (sensor < 50){
+   if (sensor < 200){
   digitalWrite (pin, HIGH);
     delay (1000);
   digitalWrite (pin, LOW);

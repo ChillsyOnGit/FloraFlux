@@ -11,10 +11,10 @@ ser = serial.Serial(arduino_port, baud_rate)
 def send_data(meting):
     key = "L!0SMZ%y8*F"
     url = "https://floraflux.chillsy.net/receive_data.php"
-    productid = "b6c7d8e9f0"
+    productid = "g1h2i3j4k5"
     waterg = 0
-    if int(meting) < 50:
-        waterg = 10
+    if int(meting) < 200:
+        waterg = 22
     else:
         waterg = 0
 
